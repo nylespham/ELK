@@ -18,3 +18,15 @@ bin/elasticsearch
 
 # Resetting elastic user's password
 bin/elasticsearch-reset-password -u elastic
+# Start as a PID
+/bin/elasticsearch -d -p pid
+
+su -l es
+
+sudo curl -O https://artifacts.elastic.co/downloads/kibana/kibana-8.10.0-linux-x86_64.tar.gz
+sudo curl https://artifacts.elastic.co/downloads/kibana/kibana-8.10.0-linux-x86_64.tar.gz.sha512 | shasum -a 512 -c - 
+sudo tar -xzf kibana-8.10.0-linux-x86_64.tar.gz
+
+sudo chown -R es kibana-8.10.0
+cd kibana-8.10.0/
+
